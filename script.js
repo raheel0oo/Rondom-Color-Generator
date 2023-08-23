@@ -1,29 +1,20 @@
+const color=()=>{ 
+    const random=Math.floor(Math.random()*16777215).toString(16);
+    const randomCode= `#${random}`;
+    document.body.style.background=randomCode;
 
-const endD= "31 August 2023 09:00 PM";
-document.getElementById("end-date").innerHTML=endD;
-
-
-const clock=()=>{
-
-    const EndDate= new Date(endD);
-    const currentDate= new Date();
-    const diff=(EndDate-currentDate)/1000;
-
-    const inputs=document.querySelectorAll('input')
-
-    if(diff<0) return;
-
-    inputs[0].value=Math.floor(diff/3600/24);
-    inputs[1].value=Math.floor(diff/3600)%24;
-    inputs[2].value=Math.floor(diff/60)%60;
-    inputs[3].value=Math.floor(diff)%60;
-   
+    const colortext=document.getElementById('code-Gene');
+    colortext.innerHTML=randomCode;
+    
+    
+    
    
 }
 
-setInterval(clock,1000);
+
+//after click color
+const click=document.getElementById('btn'); 
+click.addEventListener('click' ,color);
 
 
-
-
-
+color()//initial color
